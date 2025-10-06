@@ -1,0 +1,195 @@
+:root {
+  --accent: #ff7f50;
+  --accent-2: #ff5722;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: "Mali", cursive;
+  background: #060614;
+  overflow: hidden;
+}
+
+.stage {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+canvas#starfield {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* 🌕 Mặt trăng */
+.moon {
+  position: absolute;
+  top: 60px;
+  right: 100px;
+  width: 160px;
+  height: 160px;
+  background: radial-gradient(circle at 30% 30%, #fff, #f8f8f8 70%, #e0e0e0 100%);
+  border-radius: 50%;
+  box-shadow:
+    0 0 50px #ffffff7a,
+    0 0 80px rgba(255, 255, 255, 0.7),
+    0 0 100ox rgba(255, 255, 255, 0.4);
+  filter: drop-shadow(0 0 25px rgba(255, 255, 200, 0.8));
+  animation: moonGlow 6s ease-in-out infinite;
+  z-index: 10;
+}
+
+@keyframes moonGlow {
+  0%, 100% { opacity: 0.9; }
+  50% { opacity: 1; }
+}
+
+@media (max-width:600px) {
+  .moon {
+    top: 40px;
+    right: 14px;
+    width: 70px;
+    height: 70px;
+  }
+}
+
+/* 🎋 Đèn trời */
+#lantern-container {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.lantern {
+  position: absolute;
+  pointer-events: auto;
+  width: 40px;
+  user-select: none;
+}
+
+@keyframes swing {
+  0% { transform: rotate(-5deg); }
+  50% { transform: rotate(5deg); }
+  100% { transform: rotate(-5deg); }
+}
+
+.swing {
+  animation: swing 2s ease-in-out infinite;
+}
+
+/* 💬 Gợi ý */
+#hint {
+  position: fixed;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0);
+  color: #ffa722;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: 28px;
+  font-weight: 800;
+  opacity: 0;
+  transition: opacity 0.5s;
+  z-index: 1000;
+  pointer-events: none;
+  text-align: center;
+  white-space: nowrap;
+  text-shadow:
+    0 0 15px #ff8a50,
+    0 0 20px #ffd180;
+}
+
+@media (max-width: 600px) {
+  #hint {
+    font-size: 22px;
+    padding: 8px 12px;
+  }
+}
+
+#wish-popup .moon-img {
+  width: 200px;   /* to hơn ảnh đèn lồng */
+  margin-bottom: 10px;
+}
+
+/* 🌠 Lời chúc */
+#wish-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(255, 255, 255, 0.96);
+  color: #ff8d22;
+  padding: 35px 40px;
+  border-radius: 12px;
+  font-size: 1.8rem;
+  font-weight: 700;
+  display: none;
+  z-index: 9999;
+  box-shadow: 0 6px 30px rgba(0, 0, 0, 0.35);
+  text-align: center;
+  max-width: 60%;
+  width: auto;
+  box-sizing: border-box;
+  text-shadow: 0 0 25px #ffd180;
+  box-shadow: 0 0 20px #ff8a50, 0 0 25px #ffd180;
+}
+
+.wish-img {
+  width: 80px;
+  height: auto;
+  display: block;
+  margin: 0 auto 10px auto;
+}
+
+@media (max-width: 600px) {
+  #wish-popup {
+    font-size: 1.2rem;
+    padding: 20px 25px;
+    max-width: 80%;
+    width: 80%;
+  }
+  .wish-img {
+    width: 50px;
+  }
+}
+
+/* 🌸 Hình dưới */
+#bottom-image-container {
+  position: fixed;
+  bottom: 0;
+  right: 20px;
+  z-index: 5;
+  pointer-events: none;
+}
+
+#bottom-image-container img {
+  height: 80px;
+  width: auto;
+  display: block;
+}
+
+@media (max-width: 600px) {
+  #bottom-image-container img {
+    height: 20px;
+  }
+}
+.wish-img {
+  width: 90px;
+  height: auto;
+  display: block;
+  margin: 0 auto 12px auto;
+  animation: float 2.5s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}

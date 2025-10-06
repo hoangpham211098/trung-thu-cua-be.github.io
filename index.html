@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Trung Thu</title>
+
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Mali:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="stage">
+    <canvas id="starfield"></canvas>
+
+    <div class="moon" aria-hidden="true"></div>
+
+    <div id="lantern-container"></div>
+
+    <div id="wish-popup" role="dialog" aria-live="polite">
+      <img id="wish-img" src="" alt="Hình Trung Thu" class="wish-img">
+      <span id="wish-text"></span>
+    </div>
+
+    <div id="bottom-image-container">
+      <!-- <img src="./ass.png" alt="Trang trí Trung Thu" /> -->
+    
+    </div>
+
+    <div id="hint">Chạm vào đèn trời</div>
+
+    <!-- Nhạc nền -->
+    <audio id="bg-music" loop>
+      <source src="a.mp3" type="audio/mp3">
+      Trình duyệt của bạn không hỗ trợ thẻ audio.
+    </audio>
+  </div>
+
+  <!-- JS -->
+  <script src="script.js"></script>
+</body>
+</html>
